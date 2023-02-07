@@ -1,0 +1,77 @@
+@import "../../../node_modules/bootstrap/scss/variables";
+//*		colors
+$cream:			#F6F4EF;
+$gray-dark:	#302927;
+
+$gray-dark-100: tint-color($gray-dark, 80%);
+$gray-dark-200: tint-color($gray-dark, 60%);
+$gray-dark-300: tint-color($gray-dark, 40%);
+$gray-dark-400: tint-color($gray-dark, 20%);
+$gray-dark-500: $gray-dark;
+$gray-dark-600: shade-color($gray-dark, 20%);
+$gray-dark-700: shade-color($gray-dark, 40%);
+$gray-dark-800: shade-color($gray-dark, 60%);
+$gray-dark-900: shade-color($gray-dark, 80%);
+
+$cream-100: tint-color($cream, 80%);
+$cream-200: tint-color($cream, 60%);
+$cream-300: tint-color($cream, 40%);
+$cream-400: tint-color($cream, 20%);
+$cream-500: $cream;
+$cream-600: shade-color($cream, 20%);
+$cream-700: shade-color($cream, 40%);
+$cream-800: shade-color($cream, 60%);
+$cream-900: shade-color($cream, 80%);
+
+//*		fonts
+$font-family-serif:						swear-display, serif;
+$font-family-serif-accent:		swear-display-cilati, serif;
+
+//*		tags
+// scss-docs-start tag-variables
+$tag-margin-y:						0.25rem;
+$tag-margin-x:						0.5rem;
+$tag-padding-y:						$input-btn-padding-y;
+$tag-padding-x:						$input-btn-padding-x;
+
+$tag-padding-y-sm:				0.625rem;
+$tag-padding-x-sm:				1rem;
+$tag-font-size-sm:				$input-btn-font-size-sm;
+
+$tag-padding-y-lg:				$input-btn-padding-y-lg;
+$tag-padding-x-lg:				$input-btn-padding-x-lg;
+$tag-font-size-lg:				$input-btn-font-size-lg;
+
+$tag-font-family:					$font-family-sans-serif;
+$tag-font-weight:					$font-weight-normal;
+$tag-font-size:						1rem;
+$tag-line-height:					1rem;
+$tag-white-space:					null;
+
+$tag-link-color:					var(--#{$prefix}link-color);
+$tag-link-hover-color:		var(--#{$prefix}link-hover-color);
+$tag-link-disabled-color:	$gray-600;
+
+$tag-border-width:				1px;
+$tag-border-radius:				$border-radius-pill;
+$tag-border-radius-sm:		$border-radius-pill;
+$tag-border-radius-lg:		$border-radius-pill;
+
+$tag-box-shadow:					inset 0 1px 0 rgba($white, .15), 0 1px 1px rgba($black, .075);
+$tag-active-box-shadow:		inset 0 3px 5px rgba($black, .125);
+
+$tag-transition:					color .15s ease-in-out,
+													background-color .15s ease-in-out,
+													border-color .15s ease-in-out,
+													box-shadow .15s ease-in-out;
+
+$tag-hover-bg-shade-amount:				15% !default;
+$tag-hover-bg-tint-amount:				15% !default;
+$tag-hover-border-shade-amount:		20% !default;
+$tag-hover-border-tint-amount:		10% !default;
+$tag-active-bg-shade-amount:			20% !default;
+$tag-active-bg-tint-amount:				20% !default;
+$tag-active-border-shade-amount:	25% !default;
+$tag-active-border-tint-amount:		10% !default;
+
+// scss-docs-end tag-variables

@@ -1,0 +1,70 @@
+// Tag variants
+//
+// Easily pump out default styles, as well as :hover, :focus, :active,
+// and disabled options for all tags
+
+// scss-docs-start tag-variant-mixin
+@mixin tag-variant(
+  $background,
+  $border,
+  $color: color-contrast($background),
+  $hover-background: if($color == $color-contrast-light, shade-color($background, $tag-hover-bg-shade-amount), tint-color($background, $tag-hover-bg-tint-amount)),
+  $hover-border: if($color == $color-contrast-light, shade-color($border, $tag-hover-border-shade-amount), tint-color($border, $tag-hover-border-tint-amount)),
+  $hover-color: color-contrast($hover-background),
+  $active-background: if($color == $color-contrast-light, shade-color($background, $tag-active-bg-shade-amount), tint-color($background, $tag-active-bg-tint-amount)),
+  $active-border: if($color == $color-contrast-light, shade-color($border, $tag-active-border-shade-amount), tint-color($border, $tag-active-border-tint-amount)),
+  $active-color: color-contrast($active-background),
+  $disabled-background: $background,
+  $disabled-border: $border,
+  $disabled-color: color-contrast($disabled-background)
+) {
+  --#{$prefix}tag-color: #{$color};
+  --#{$prefix}tag-bg: #{$background};
+  --#{$prefix}tag-border-color: #{$border};
+  --#{$prefix}tag-hover-color: #{$hover-color};
+  --#{$prefix}tag-hover-bg: #{$hover-background};
+  --#{$prefix}tag-hover-border-color: #{$hover-border};
+  --#{$prefix}tag-focus-shadow-rgb: #{to-rgb(mix($color, $border, 15%))};
+  --#{$prefix}tag-active-color: #{$active-color};
+  --#{$prefix}tag-active-bg: #{$active-background};
+  --#{$prefix}tag-active-border-color: #{$active-border};
+  --#{$prefix}tag-active-shadow: #{$tag-active-box-shadow};
+  --#{$prefix}tag-disabled-color: #{$disabled-color};
+  --#{$prefix}tag-disabled-bg: #{$disabled-background};
+  --#{$prefix}tag-disabled-border-color: #{$disabled-border};
+}
+// scss-docs-end tag-variant-mixin
+
+// scss-docs-start tag-outline-variant-mixin
+@mixin tag-outline-variant(
+  $color,
+  $color-hover: color-contrast($color),
+  $active-background: $color,
+  $active-border: $color,
+  $active-color: color-contrast($active-background)
+) {
+  --#{$prefix}tag-color: #{$color};
+  --#{$prefix}tag-border-color: #{$color};
+  --#{$prefix}tag-hover-color: #{$color-hover};
+  --#{$prefix}tag-hover-bg: #{$active-background};
+  --#{$prefix}tag-hover-border-color: #{$active-border};
+  --#{$prefix}tag-focus-shadow-rgb: #{to-rgb($color)};
+  --#{$prefix}tag-active-color: #{$active-color};
+  --#{$prefix}tag-active-bg: #{$active-background};
+  --#{$prefix}tag-active-border-color: #{$active-border};
+  --#{$prefix}tag-active-shadow: #{$tag-active-box-shadow};
+  --#{$prefix}tag-disabled-color: #{$color};
+  --#{$prefix}tag-disabled-bg: transparent;
+  --#{$prefix}tag-disabled-border-color: #{$color};
+  --#{$prefix}gradient: none;
+}
+// scss-docs-end tag-outline-variant-mixin
+
+// scss-docs-start tag-size-mixin
+@mixin tag-size($padding-y, $padding-x, $font-size, $border-radius) {
+  --#{$prefix}tag-padding-y: #{$padding-y};
+  --#{$prefix}tag-padding-x: #{$padding-x};
+  @include rfs($font-size, --#{$prefix}tag-font-size);
+  --#{$prefix}tag-border-radius: #{$border-radius};
+}
+// scss-docs-end tag-size-mixin

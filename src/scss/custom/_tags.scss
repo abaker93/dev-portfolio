@@ -1,0 +1,75 @@
+//=		Base styles
+
+.tag {
+  // scss-docs-start tag-css-vars
+  --#{$prefix}tag-margin-x: #{$tag-margin-x};
+  --#{$prefix}tag-margin-y: #{$tag-margin-y};
+  --#{$prefix}tag-padding-x: #{$tag-padding-x};
+  --#{$prefix}tag-padding-y: #{$tag-padding-y};
+  --#{$prefix}tag-font-family: #{$tag-font-family};
+  @include rfs($tag-font-size, --#{$prefix}tag-font-size);
+  --#{$prefix}tag-font-weight: #{$tag-font-weight};
+  --#{$prefix}tag-line-height: #{$tag-line-height};
+  --#{$prefix}tag-color: #{$body-color};
+  --#{$prefix}tag-bg: transparent;
+  --#{$prefix}tag-border-width: #{$tag-border-width};
+  --#{$prefix}tag-border-color: transparent;
+  --#{$prefix}tag-border-radius: #{$tag-border-radius};
+  --#{$prefix}tag-hover-border-color: transparent;
+  --#{$prefix}tag-box-shadow: #{$tag-box-shadow};
+  // scss-docs-end tag-css-vars
+
+  display: inline-block;
+  margin: var(--#{$prefix}tag-margin-y) var(--#{$prefix}tag-margin-x);
+  padding: calc(var(--#{$prefix}tag-padding-y) / 1.25) var(--#{$prefix}tag-padding-x) var(--#{$prefix}tag-padding-y);
+  font-family: var(--#{$prefix}tag-font-family);
+  @include font-size(var(--#{$prefix}tag-font-size));
+  font-weight: var(--#{$prefix}tag-font-weight);
+  line-height: var(--#{$prefix}tag-line-height);
+  color: var(--#{$prefix}tag-color);
+  text-align: center;
+  text-decoration: if($link-decoration == none, null, none);
+  white-space: $tag-white-space;
+  vertical-align: middle;
+  // cursor: if($enable-button-pointers, pointer, null);
+  user-select: none;
+  border: var(--#{$prefix}tag-border-width) solid var(--#{$prefix}tag-border-color);
+  @include border-radius(var(--#{$prefix}tag-border-radius));
+  @include gradient-bg(var(--#{$prefix}tag-bg));
+  @include box-shadow(var(--#{$prefix}tag-box-shadow));
+  @include transition($tag-transition);
+}
+
+
+
+
+
+//=		Alternate tags
+
+// scss-docs-start tag-variant-loops
+@each $color, $value in $theme-colors {
+  .tag-#{$color} {
+		@include tag-variant($value, $value);
+  }
+}
+
+@each $color, $value in $theme-colors {
+  .tag-outline-#{$color} {
+    @include tag-outline-variant($value);
+  }
+}
+// scss-docs-end tag-variant-loops
+
+
+
+
+
+//=		Tag Sizes
+
+.tag-lg {
+  @include tag-size($tag-padding-y-lg, $tag-padding-x-lg, $tag-font-size-lg, $tag-border-radius-lg);
+}
+
+.tag-sm {
+  @include tag-size($tag-padding-y-sm, $tag-padding-x-sm, $tag-font-size-sm, $tag-border-radius-sm);
+}
